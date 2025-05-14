@@ -13,9 +13,14 @@ struct RecipesView: View {
     var body: some View {
         NavigationStack {
             List(viewModel.recipes) { recipe in
-                RecipeView(name: recipe.name,
-                           cuisine: recipe.cuisine)
+                NavigationLink(value: recipe) {
+                    RecipeView(name: recipe.name,
+                               cuisine: recipe.cuisine)
+                }
             }
+            .navigationDestination(for: Recipe.self, destination: { recipe in
+                EmptyView()
+            })
             .navigationTitle("Culinaria")
         }
     }
