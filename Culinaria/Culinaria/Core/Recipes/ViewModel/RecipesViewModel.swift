@@ -7,4 +7,25 @@
 
 import Foundation
 
-class RecipesViewModel: ObservableObject {}
+class RecipesViewModel: ObservableObject {
+    @Published var recipes = [Recipe]()
+    @Published var errorMessage = ""
+    
+    private let service: RecipeDataService
+    
+    init() {
+        service = RecipeDataService()
+        Task {
+            await fetchRecipes()
+        }
+    }
+    
+    @MainActor
+    func fetchRecipes() async {
+        do {
+            recipes = try await service.fetchRecipes()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+}

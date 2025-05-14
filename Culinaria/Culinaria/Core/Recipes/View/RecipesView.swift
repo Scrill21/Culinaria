@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct RecipesView: View {
+    @StateObject var viewModel: RecipesViewModel
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(viewModel.recipes) { recipe in
+                Text(recipe.name)
+                    .font(.headline)
+            }
+            .navigationTitle("Culinaria")
         }
-        .padding()
     }
 }
 
 #Preview {
-    RecipesView()
+    RecipesView(viewModel: RecipesViewModel())
 }
