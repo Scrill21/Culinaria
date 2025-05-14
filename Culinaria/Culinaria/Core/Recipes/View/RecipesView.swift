@@ -13,9 +13,14 @@ struct RecipesView: View {
     var body: some View {
         NavigationStack {
             List(viewModel.recipes) { recipe in
-                Text(recipe.name)
-                    .font(.headline)
+                NavigationLink(value: recipe) {
+                    RecipeView(name: recipe.name,
+                               cuisine: recipe.cuisine)
+                }
             }
+            .navigationDestination(for: Recipe.self, destination: { recipe in
+                EmptyView()
+            })
             .navigationTitle("Culinaria")
         }
     }
@@ -23,4 +28,26 @@ struct RecipesView: View {
 
 #Preview {
     RecipesView(viewModel: RecipesViewModel())
+}
+
+struct RecipeView: View {
+    let name: String
+    let cuisine: String
+    
+    var body: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "birthday.cake")
+                .resizable()
+                .frame(width: 50, height: 50)
+            
+            VStack(alignment: .leading) {
+                Text(name)
+                    .font(.headline)
+                
+                Text(cuisine)
+                    .foregroundStyle(.gray)
+                    .font(.footnote)
+            }
+        }
+    }
 }

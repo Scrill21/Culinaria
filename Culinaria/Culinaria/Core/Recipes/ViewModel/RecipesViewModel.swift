@@ -15,9 +15,8 @@ class RecipesViewModel: ObservableObject {
     
     init() {
         service = RecipeDataService()
-        Task {
-            await fetchRecipes()
-        }
+        
+        Task { await fetchRecipes() }
     }
     
     @MainActor
@@ -25,7 +24,8 @@ class RecipesViewModel: ObservableObject {
         do {
             recipes = try await service.fetchRecipes()
         } catch {
-            errorMessage = error.localizedDescription
+            guard let networkingError = error as? NetworkingError else { return }
+            errorMessage = networkingError.customDescription
         }
     }
 }

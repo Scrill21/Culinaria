@@ -11,23 +11,26 @@ class RecipeDataService {
     
     func fetchRecipes() async throws -> [Recipe] {
         let urlString = "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json"
-        guard let url = URL(string: urlString) else { return [] }
+        
+        guard let url = URL(string: urlString) else {
+            throw NetworkingError.invalidURL
+        }
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            return []
+            throw NetworkingError.requestFailed
         }
         
         guard httpResponse.statusCode == 200 else {
-            return []
+            throw NetworkingError.invalidStatusCode(statusCode: httpResponse.statusCode)
         }
         
         do {
             let recipeResult = try JSONDecoder().decode(RecipeResult.self, from: data)
             return recipeResult.recipes
         } catch {
-            return []
+            throw NetworkingError.jsonParsingFailure(description: error.localizedDescription)
         }
     }
 }
