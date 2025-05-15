@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipesView: View {
-    @StateObject var viewModel: RecipesViewModel
+    @ObservedObject var viewModel: RecipesViewModel
     
     var body: some View {
         NavigationStack {
@@ -19,7 +19,7 @@ struct RecipesView: View {
                 }
             }
             .navigationDestination(for: Recipe.self, destination: { recipe in
-                EmptyView()
+                RecipeDetailsView(viewModel: RecipeDetailsViewModel(recipe: recipe))
             })
             .navigationTitle("Culinaria")
         }
