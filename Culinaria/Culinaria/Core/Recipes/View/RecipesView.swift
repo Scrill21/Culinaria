@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct RecipesView: View {
-    @ObservedObject var viewModel: RecipesViewModel
+    @StateObject var viewModel: RecipesViewModel
+    
+    init(service: RecipeDataService) {
+        self._viewModel = StateObject(wrappedValue: RecipesViewModel(service: service))
+    }
     
     var body: some View {
         NavigationStack {
@@ -27,7 +31,7 @@ struct RecipesView: View {
 }
 
 #Preview {
-    RecipesView(viewModel: RecipesViewModel())
+    RecipesView(service: RecipeDataService())
 }
 
 struct RecipeView: View {

@@ -13,8 +13,8 @@ class RecipesViewModel: ObservableObject {
     
     private let service: RecipeDataService
     
-    init() {
-        service = RecipeDataService()
+    init(service: RecipeDataService) {
+        self.service = service
         
         Task { await fetchRecipes() }
     }

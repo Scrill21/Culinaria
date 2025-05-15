@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct RecipeResult: Decodable {
+struct RecipeResult: Codable {
     let recipes: [Recipe]
 }
 
-struct Recipe: Decodable, Identifiable, Hashable {
+struct Recipe: Codable, Identifiable, Hashable {
     let cuisine: String
     let name: String
     let photoURLLarge: String

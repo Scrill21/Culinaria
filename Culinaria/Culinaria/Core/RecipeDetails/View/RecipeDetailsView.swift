@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeDetailsView: View {
-    @ObservedObject var viewModel: RecipeDetailsViewModel
+    @StateObject var viewModel: RecipeDetailsViewModel
     
     var body: some View {
         ZStack {
