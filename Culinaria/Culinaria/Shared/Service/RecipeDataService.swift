@@ -7,7 +7,11 @@
 
 import Foundation
 
-class RecipeDataService: HTTPSDataDownloader {
+protocol RecipeDataServiceable {
+    func fetchRecipes() async throws -> [Recipe]
+}
+
+class RecipeDataService: RecipeDataServiceable, HTTPSDataDownloader {
     private var baseURLComponents: URLComponents {
         var components = URLComponents()
         

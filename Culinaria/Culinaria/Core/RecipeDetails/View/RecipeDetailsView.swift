@@ -22,8 +22,7 @@ struct RecipeDetailsView: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text(viewModel.name)
-                            .font(.largeTitle)
-                            .bold()
+                            .font(.largeTitle.bold())
                         
                         Text(viewModel.cuisine)
                             .font(.headline)
