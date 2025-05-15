@@ -10,7 +10,7 @@ import SwiftUI
 struct RecipesView: View {
     @StateObject var viewModel: RecipesViewModel
     
-    init(service: RecipeDataService) {
+    init(service: RecipeDataServiceable) {
         self._viewModel = StateObject(wrappedValue: RecipesViewModel(service: service))
     }
     
@@ -31,7 +31,7 @@ struct RecipesView: View {
 }
 
 #Preview {
-    RecipesView(service: RecipeDataService())
+    RecipesView(service: MockRecipeDataService())
 }
 
 struct RecipeView: View {

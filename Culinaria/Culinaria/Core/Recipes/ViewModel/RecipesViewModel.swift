@@ -11,9 +11,9 @@ class RecipesViewModel: ObservableObject {
     @Published var recipes = [Recipe]()
     @Published var errorMessage = ""
     
-    private let service: RecipeDataService
+    private let service: RecipeDataServiceable
     
-    init(service: RecipeDataService) {
+    init(service: RecipeDataServiceable) {
         self.service = service
         
         Task { await fetchRecipes() }
