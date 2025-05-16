@@ -40,7 +40,7 @@ class RecipeDataService: RecipeDataServiceable, HTTPSDataDownloader {
     private var emptyRecipesURLString: String? {
         var components = baseURLComponents
         
-        components.path += "recipes-empty.json"
+        components.path += "/recipes-empty.json"
         
         return components.url?.absoluteString
     }
