@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipesView: View {
     @StateObject var viewModel: RecipesViewModel
+    @State private var isShowingAlert = false
     
     init(service: RecipeDataServiceable) {
         self._viewModel = StateObject(wrappedValue: RecipesViewModel(service: service))
@@ -26,6 +27,15 @@ struct RecipesView: View {
                 RecipeDetailsView(viewModel: RecipeDetailsViewModel(recipe: recipe))
             })
             .navigationTitle("Culinaria")
+            .overlay {
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                        .padding()
+                }
+            }
+        }
+        .task {
+            await viewModel.fetchRecipes()
         }
     }
 }

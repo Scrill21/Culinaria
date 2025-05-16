@@ -9,14 +9,12 @@ import Foundation
 
 class RecipesViewModel: ObservableObject {
     @Published var recipes = [Recipe]()
-    @Published var errorMessage = ""
+    @Published var errorMessage: String?
     
     private let service: RecipeDataServiceable
     
     init(service: RecipeDataServiceable) {
         self.service = service
-        
-        Task { await fetchRecipes() }
     }
     
     @MainActor

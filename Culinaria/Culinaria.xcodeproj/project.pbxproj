@@ -6,11 +6,42 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		AC17F8F82DD67FF600CADB38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACFE73B62DD3B14800F551E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACFE73BD2DD3B14800F551E4;
+			remoteInfo = Culinaria;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		AC17F8F42DD67FF600CADB38 /* CulinariaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CulinariaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACFE73BE2DD3B14800F551E4 /* Culinaria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Culinaria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AC17F9002DD68A1E00CADB38 /* Exceptions for "CulinariaTests" folder in "Culinaria" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TestData/MockEmptyRecipeData.swift,
+				TestData/MockMalformedRecipeData.swift,
+				TestData/MockRecipeData.swift,
+			);
+			target = ACFE73BD2DD3B14800F551E4 /* Culinaria */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		AC17F8F52DD67FF600CADB38 /* CulinariaTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AC17F9002DD68A1E00CADB38 /* Exceptions for "CulinariaTests" folder in "Culinaria" target */,
+			);
+			path = CulinariaTests;
+			sourceTree = "<group>";
+		};
 		ACFE73C02DD3B14800F551E4 /* Culinaria */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Culinaria;
@@ -19,6 +50,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AC17F8F12DD67FF600CADB38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACFE73BB2DD3B14800F551E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFE73C02DD3B14800F551E4 /* Culinaria */,
+				AC17F8F52DD67FF600CADB38 /* CulinariaTests */,
 				ACFE73BF2DD3B14800F551E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFE73BE2DD3B14800F551E4 /* Culinaria.app */,
+				AC17F8F42DD67FF600CADB38 /* CulinariaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +88,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AC17F8F32DD67FF600CADB38 /* CulinariaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC17F8FC2DD67FF600CADB38 /* Build configuration list for PBXNativeTarget "CulinariaTests" */;
+			buildPhases = (
+				AC17F8F02DD67FF600CADB38 /* Sources */,
+				AC17F8F12DD67FF600CADB38 /* Frameworks */,
+				AC17F8F22DD67FF600CADB38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC17F8F92DD67FF600CADB38 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AC17F8F52DD67FF600CADB38 /* CulinariaTests */,
+			);
+			name = CulinariaTests;
+			packageProductDependencies = (
+			);
+			productName = CulinariaTests;
+			productReference = AC17F8F42DD67FF600CADB38 /* CulinariaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ACFE73BD2DD3B14800F551E4 /* Culinaria */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACFE73C92DD3B14A00F551E4 /* Build configuration list for PBXNativeTarget "Culinaria" */;
@@ -80,6 +143,10 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					AC17F8F32DD67FF600CADB38 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = ACFE73BD2DD3B14800F551E4;
+					};
 					ACFE73BD2DD3B14800F551E4 = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -100,11 +167,19 @@
 			projectRoot = "";
 			targets = (
 				ACFE73BD2DD3B14800F551E4 /* Culinaria */,
+				AC17F8F32DD67FF600CADB38 /* CulinariaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AC17F8F22DD67FF600CADB38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACFE73BC2DD3B14800F551E4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +190,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AC17F8F02DD67FF600CADB38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACFE73BA2DD3B14800F551E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +206,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AC17F8F92DD67FF600CADB38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACFE73BD2DD3B14800F551E4 /* Culinaria */;
+			targetProxy = AC17F8F82DD67FF600CADB38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AC17F8FA2DD67FF600CADB38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XZY7N8QBS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonybyrd.CulinariaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Culinaria.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Culinaria";
+			};
+			name = Debug;
+		};
+		AC17F8FB2DD67FF600CADB38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9XZY7N8QBS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anthonybyrd.CulinariaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Culinaria.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Culinaria";
+			};
+			name = Release;
+		};
 		ACFE73C72DD3B14A00F551E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -307,6 +433,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AC17F8FC2DD67FF600CADB38 /* Build configuration list for PBXNativeTarget "CulinariaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC17F8FA2DD67FF600CADB38 /* Debug */,
+				AC17F8FB2DD67FF600CADB38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ACFE73B92DD3B14800F551E4 /* Build configuration list for PBXProject "Culinaria" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
