@@ -18,6 +18,10 @@ class RecipeDetailsViewModel: ObservableObject {
         recipe.name
     }
     
+    var largePhotoURLString: String {
+        recipe.photoURLLarge
+    }
+    
     init(recipe: Recipe) {
         self.recipe = recipe
     }

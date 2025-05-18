@@ -17,10 +17,31 @@ struct RecipesView: View {
     
     var body: some View {
         NavigationStack {
+            
+            HStack {
+                Text("Recipes")
+                    .font(.title2)
+                    .padding()
+                
+                Spacer()
+                
+                Menu {
+                    
+                } label: {
+                    Image(systemName: "line.3.horizontal.decrease")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundStyle(.black)
+                        .padding()
+                }
+            }
+            
+            
             List(viewModel.recipes) { recipe in
                 NavigationLink(value: recipe) {
                     RecipeView(name: recipe.name,
-                               cuisine: recipe.cuisine)
+                               cuisine: recipe.cuisine,
+                               smallPhotoURLString: recipe.photoURLSmall)
                 }
             }
             .navigationDestination(for: Recipe.self, destination: { recipe in
@@ -47,12 +68,14 @@ struct RecipesView: View {
 struct RecipeView: View {
     let name: String
     let cuisine: String
+    let smallPhotoURLString: String
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(systemName: "birthday.cake")
-                .resizable()
-                .frame(width: 50, height: 50)
+            ImageView(urlString: smallPhotoURLString)
+                .frame(width: 75, height: 75)
+                .clipShape(RoundedRectangle(cornerRadius: 5.0))
+                .scaledToFill()
             
             VStack(alignment: .leading) {
                 Text(name)
