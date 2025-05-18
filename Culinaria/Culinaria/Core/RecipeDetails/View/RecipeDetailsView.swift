@@ -19,6 +19,15 @@ struct RecipeDetailsView: View {
             .ignoresSafeArea()
             
             VStack {
+                Spacer()
+                
+                ImageView(urlString: viewModel.largePhotoURLString)
+                    .frame(width: 300, height: 300)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .scaledToFit()
+                    .shadow(radius: 25)
+                    
+                
                 HStack {
                     VStack(alignment: .leading) {
                         Text(viewModel.name)
@@ -58,6 +67,9 @@ struct RecipeDetailsView: View {
                             .font(.headline)
                     }
                 }
+                
+                Spacer()
+                Spacer()
             }
         }
     }
