@@ -12,6 +12,12 @@ protocol RecipeDataServiceable {
 }
 
 class RecipeDataService: RecipeDataServiceable, HTTPSDataDownloader {
+    /*
+     https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json
+     https://d3jbb8n5wk0qxi.cloudfront.net/recipes-malformed.json
+     https://d3jbb8n5wk0qxi.cloudfront.net/recipes-empty.json
+     */
+    
     private var baseURLComponents: URLComponents {
         var components = URLComponents()
         
@@ -44,12 +50,6 @@ class RecipeDataService: RecipeDataServiceable, HTTPSDataDownloader {
         
         return components.url?.absoluteString
     }
-    
-    /*
-     https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json
-     https://d3jbb8n5wk0qxi.cloudfront.net/recipes-malformed.json
-     https://d3jbb8n5wk0qxi.cloudfront.net/recipes-empty.json
-     */
     
     func fetchRecipes() async throws -> [Recipe] {
         guard let endpoint = recipesURLString else {
