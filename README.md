@@ -21,5 +21,5 @@ The primary trade-off I made was deprioritizing the user interface in favor of e
 ### Weakest Part of the Project:
 The user interface is currently the weakest aspect of my project. The improvements would include implementing a launch screen, replacing the `List` in `RecipesView` with a `ScrollView` and a custom view to present the recipe content in a more refined and visually appealing manner. Additionally, I would reposition the filter menu to the navigation bar using a `.toolbarItem`, and enhance the overall visual experience by introducing a more vibrant and cohesive color scheme throughout the application.
 
-### Additional Information
+### Additional Information:
 I sincerely appreciate the opportunity to demonstrate my skills and thoroughly enjoyed working on this project.
