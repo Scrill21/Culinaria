@@ -567,4 +567,4 @@ let mockRecipeData_invalidJSON = """
     }
   ]
 }
-""".data(using: .utf8)
+""".data(using: .utf8)!

@@ -19,25 +19,21 @@ struct RecipesView: View {
         NavigationStack {
             
             HStack {
-                Text("Recipes")
-                    .font(.title2)
-                    .padding()
-                
                 Spacer()
                 
-                Menu {
-                    
+                Text("Choose cuisine:")
+                    .font(.callout)
+                
+                Picker(selection: $viewModel.selectedCuisineType.animation()) {
+                    ForEach(CuisineOptions.allCases, id: \.self) { cuisine in
+                        Text(cuisine.type)
+                    }
                 } label: {
-                    Image(systemName: "line.3.horizontal.decrease")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .foregroundStyle(.black)
-                        .padding()
+                    Text("selected filter:")
                 }
             }
             
-            
-            List(viewModel.recipes) { recipe in
+            List(viewModel.cuisineType) { recipe in
                 NavigationLink(value: recipe) {
                     RecipeView(name: recipe.name,
                                cuisine: recipe.cuisine,
@@ -48,10 +44,24 @@ struct RecipesView: View {
                 RecipeDetailsView(viewModel: RecipeDetailsViewModel(recipe: recipe))
             })
             .navigationTitle("Culinaria")
-            .overlay {
+            .alert("Ooops!, an error has occured", isPresented: $viewModel.isErrorPresented, actions: {
+                Button("Cancel", role: .cancel) {}
+                
+                Button("Retry") {
+                    viewModel.isErrorPresented = false
+                    
+                    Task {
+                        await viewModel.fetchRecipes()
+                    }
+                }
+            }, message: {
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
-                        .padding()
+                }
+            })
+            .overlay {
+                if viewModel.recipes.isEmpty {
+                    ContentUnavailableView("No recipes", systemImage: "fork.knife.circle", description: Text("No recipes are currently available at this time."))
                 }
             }
         }
