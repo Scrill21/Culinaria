@@ -43,6 +43,11 @@ struct RecipesView: View {
             .navigationDestination(for: Recipe.self, destination: { recipe in
                 RecipeDetailsView(viewModel: RecipeDetailsViewModel(recipe: recipe))
             })
+            .refreshable {
+                Task {
+                    await viewModel.fetchRecipes()
+                }
+            }
             .navigationTitle("Culinaria")
             .alert("Ooops!, an error has occured", isPresented: $viewModel.isErrorPresented, actions: {
                 Button("Cancel", role: .cancel) {}
